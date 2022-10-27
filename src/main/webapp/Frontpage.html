@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stockmarket solutions</title>
+
+    <header id='header'>
+        <nav id='nav-bar'>
+            <h1 id='logo'><img id='header-img' src='D:/Screenshot_20210328-162710.jpg'>
+                StockMarket Solutions
+            </h1>
+            <ul>
+                <li><a class='nav-link' href='#download'>Our Services</a></li>
+                <li><a class='nav-link' href='#buy'>Buy Membership</a></li>
+                <li><a class='nav-link' ><img id = 'cart' src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAgVBMVEUAAAD////Y2NjS0tLDw8P6+vp+fn5ERETGxsbOzs7W1tampqaLi4v39/dISEg2NjYfHx/p6eknJycYGBjf39/r6+uYmJirq6twcHDx8fFbW1sTExPd3d2EhIS+vr5jY2Ozs7NTU1M5OTkuLi6dnZ0LCwtzc3MkJCReXl5oaGiBgYEhFyiEAAAJlklEQVR4nO2d60LqOhCFBUFuFqiAUi7SguDevv8DHlA8VmYlTZtJJu05318pZtE2mVsmd3dX1uv19MLTD9MvZuc/He9qzq6/SKKohelGUZQs4vm8fT94edhLj7UKx4FCG9Q73Nbuhs6SEgI/Rb5Mpcdcjk1JgRdG0oMuw2MFga3WfCc9bnPiSgpbrWfpgZsyriiw1XqVHroh28oKWx3psZvxXF1hK5UevBEW97Am72L19/DCSnr4JixsFMZ1WPurrYffvEkP34R7G4XdnvTwDVgPbSTWY1UcdS0kTqRHb8T++aUz2GwWi6ibw0zhi/TgLVjPZrP3yWTSG692y4ft86iNREd1mE6NydpA4lZ6VLyAcEBfeky8zKizFdVjrjHmL72JH9JjYoY+pw17TMFNTN6lx8TMnEhcSg+JGeoz18NyM2dPH1PpIXFDA6xj6SExQx/TWgWIDciIwrn0kJhZU7umDn5wGVKi8FF6SMwsicKB9JCYeSf5uOQgPSZmOuQmNs2soYHyppk1B6JwUbvUdwE0mpFJD4mZN6KwFsHvEtB8zkZ6SMwcqVnTtPWCmjVNi9aciMKa5LyNOVCzZiY9JmZoyK1GFTZG0MRq09zgHsnSNM0N/g9Ea0ZEYdPc4IwovJceEjekTKXbtPXildzEbzf4uD6euaSQL/yUjh8mkH2vKl/Xf373+R+xV6NTsyZO+8PNfD6PP1lEySdRId2q5L7j/I/ieN6+77+mbx8Zz9M0UZW+B0D0yjKxW5UaOSdd2yu0Kdz0wNw+7JDZFBp5ILJ+Uo80VxoW9jUU1A0ODOvQCqjLCAzb+Ni07G4b73Rto0d9aQWF2DqtH9ICCllYKqRFC8FhO51W2RXmF9voEY3uh4atW76SFlCI7VQDijEDw7pIO3izxlohdYPPdJPFlxM8byvJ2bSR4iM5/zMZqr9J8a1XrLN+0A3ePs0KAwq5/Fxb8ZFcWN30baJ2pH0VOtoHbvK7uVFISyj+Gl6pBm2bMol+O1FIA/EMYeoeUGjytU4UvtChPBkrUYLcYINl1oXCJ+rrxOZClNDovlH024VCEDjiqPP5AxRGxW6ZA4WguIAlqQmbThQXgTlQ+EDHwZPxo9F9k4fDgUIwI/Ckw8BP14oKr+JXSGtCDYZhxB6ZNYWbvPkVAtuDK/GOovuFBi+7QuTIcW2NRG5wYXyEXSGYDthKQjOgsLBWkVvhGKQY2AoL0DpUaH3nglgGCotteeCoMmbdkRucdPTkhh8pPpJbaOOCb+t0wC1krMwOM7rPWd8zCzIbzFosWaYdmi+YVvsrdt1D3MBblg18a3GYi3vCi+6nvAKhGywL9266nbSgW9hrsqdWvZgcwL/BhQYqRVEZghbAbPC801fRyblckeJjv6y2m78Nvhi2N3NkbjioOZ+g9ULnvZSzvHW+BSgm4IghElDnmoWmtIzNe0KVWQ9WUhTAbPAf9efZFALHxrY8AZMhhan681wKD+A1dNTsEK0XmnYSXAqBreGqcxXMBqvjCEwK1yAe7ar7GMwGq397JoXIq2FIN0HQC6GZtnkUohCRu03X0A1WPqY8CpGh4a6nOiyKVvqhPArBKuywvUOGFCrDQSwKQapCtwZbA4uiVX4ai0JwCx3Y3D/A9UKV3+JQiFIVJxYpCmDYdKj4MEfM25fN/S9o9T2/+dg1quY93V9oXzYeXfYbgf/muE2lfNiUN0hKseoNzoLrBuPiYVP33WKRG+wT99vJhcOmXfedVFH1kEdS5wLvprJF0T7OMULVQ97w0nsEusG+8NLxQHJvsKd2ALBHfzK4J+QWloj+9ZPcr7W4+Qb0vnvqrQKzwejXtbO8gX3o1G3KgY88Aa2UrbwntCo5iXMjYJoNWPxWCsEtdOs25QHF5PAxtVGYmf2IjsDVQ/RzNgrBquuxWTPeG0xfEguFPX+pCgjMBtPG9BYKwYsQ+WwcA91gOoLqCmkjNc9duNAzBEJg1RWCyLPnAyigG0ySCdUVgluYutChBmaDSXyhskL0Fnhutp0hhaSctbJCEFn33uIXmjW3s2lVhcg/894vHe8NvvlQVYVg64P/ZuIoI0QSGLl9i2UUogI6/y2Mp9gNjjft4Q+5es1oiPm10/kKeAMkGuH5je7b7/Qtj9eiaJEWzV6j+04Thko8Rvf9eb6/8Bjd9xa8+I2/lidCtxCd0+IIoVvoL7ov17sYmzX8iN3Cu6Of6L5kX18/Zo3koRpezBrRHul7D2aN8Nk27s2aVFagc7MmET+k161Zk4zkD7AFZs21Bdj8i5suXUNFmjTH5z6g/uvL27awJ4UXwPFzs/fZes3QojkQqFnTtAMwaGeexh2AQZNQTTvXi3bmSaWHxMyUmjVNO36Ohqdd7UiSAljfDTuKBljfvsp6fAGs71R6TLygnVDNWvZR76aGnZkEnUSfpS/OQe34GrZm4K4uA3nnjg1F8X7y7Gqvrn9U/b6T1+WkGZ6irml7Em+Gg06ajs48X3k0ZftwYblc/l2NZR8IH715koHo+Zl+ToUSnZ/9HNUieZTt0U/OW/LY7HcvJ18lkvPNwUtKWKYo48rUx11MJRXeTT2cJEhryb1ydH+YibBCD+tiKq3wbuz4ZRSdaa6MXCaGDU4r8EDPYfPBUPzqzFWRxjwcX2ycuqi12QTxjH4zPY0G8SLheym7ixBjlLPDfpytdruzD3t6qMbpfO1yt1tl+6YdCF4LJuPzzVv1SrUiecpOj4+nVVAvnIL92/VItW7cfzB8wGYfg2vWPBlsnfdosWP9ey5dGEX5P37ts0iCzgwsaQFDYVLxQAIhDGduuwLVLEYFFmUGNsoUXSMGLsrsak+i2ONzlRlPr2BE1aFH1xxIFQLphlH6dYPylGtN9lsZjIwDnFJhv4UvlLWUmpr4ULyJHw4aSzRWrYu6MF1wSTrt8ciKJQ7nWK8EZ29roxiKDpKwo883bvp2Vwee5/kvXRiy1j3YreAe04Izk6BlU1BLLbdlBlIQToTLm/Y1DK6sQ7NWVFUY2FTzv0J0TcEeOMmcIaDgfkCF9ZppCkYLm1s8VbhGjpn2PCFF+1htbtV11+DSaLfOKnJj2u1Tqc/Rm6B9TBW9H/a6a8ILZWgSwcr0piaz6r9rSyET9WiVcwbq7BXsLdTsndVsJlQ2fQ3MZLuimGxS3TWKyUZ4j6wSGHVJ9ddAYyjAl/AKcPQLI9jAKwnMIv3F6sbVHxrso+ndzMKxaLVlMadcaKJvONZd/8fbv2c9B9cNT8vRy5m3XYmQ52z1dc2pZHrtH93vqH6e1XESAAAAAElFTkSuQmCC"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id='trading'>
+        <div>
+            <h2>Take your trading to the next level</h2>
+            <p>
+                We make you independent investor and trader<br>
+                Simple solutions to all your trading problems<br>
+                Trading ideas taken to new heights<br>
+                Effective risk management
+                
+            </p>
+            <br>
+            <a href = login.html><button>Start Training</button></a>
+            <a href = #popup1><button class='button-right'>Learn more</button></a>
+        </div>
+        <div id = "popup1" class = "overlay">
+<div class = "popup">
+<h2>ABOUT US</h2>
+<a class="close" href="#">&times;</a>
+<div class = "content">
+<p>Stockmarket solutions Started with aim to provide right education in stock market trading so people learn right way to make money in stock market using our tested technical analysis tools.</p><br>
+<p>Stockmarket solutions highly knowledgeable faculty has more than a decade of experience in the financial markets. We at StoxMaster’s - Stock Market Training Academy teach you best proven methods and techniques for successful trading in stock market and investing through the use of risk management, trading fundamentals, share market technical analysis and Long Term trading techniques.</p><br>
+<p>Our Mission is to make everyone financially independent using right technical analysis so they can generate continuous income from trading stocks with our training programs.</p>
+
+</div>
+</div>
+</div>
+    </section>
+    <section id='download'>
+        <div>
+            <h3>Our Services</h3>
+            <p>
+               Analysis for Futures & Optios of Nifty & Bank Nifty 
+                <br>Best trading strategies for intraday in Equity
+                <br>Daily pre-market analysis for everything
+                <br>Free stocks will be given in our telegram channel
+            </p>
+            <br>
+            
+        </div>
+    </section>
+    <section id='buy'>
+        <h3>Join the <em>PRO</em> Family</h3>
+        <br>
+        <div id='cards'>
+            <div class='bla-bla-bla'>
+                <p>
+                    Get unlimited access for the private custom indicators
+                    <br><br><br>
+                   
+                </p>
+            </div>
+            <div class='bla-bla-bla'>
+                <p>
+                    &#128074; Exclusive video analysis and programs directly from stock investors
+                    <br>
+                    &#128074; Access to the custom indicators
+                    <br>
+                    &#128074; Powerful analysis and training history
+                </p>
+            </div>
+            <div id='card-left'>
+                <h3>Monthly</h3>
+                <p>
+                    Get started today
+                    <br>
+                <h4>499 INR</h4>
+                <button>Select Plan</button>
+                <br> Billed every month. <br>Cancel any time.
+                </p>
+            </div>
+            <div id='card-right'>
+                <h3>Yearly</h3>
+                <p>
+                    Get 3 months for FREE!
+                    <br>
+                <h4>3,999 INR</h4>
+                <button>Select Plan</button>
+                <br> Billed every year. <br>Cancel any time.
+                </p>
+            </div>
+        </div>
+        <div>
+            <p id='money-back'>15-day money-back guarantee &#129317;</p>
+        </div>
+    </section>
+    <footer id='rss'>
+        <div class='social-media'>
+            <div id='social-media-subscribe'>
+                <form id='form' action="https://www.freecodecamp.com/email-submit">
+                    <h3>JOIN OUR NEWSLETTER</h3>
+                    <label>Subscribe to our mailing list and get interesting stuff updates to your email inbox.
+                        <br>
+                        <input name='email' id='email' type='email' placeholder='Email Address' required></label>
+                    <input id='submit' type='submit' value='Subscribe'>
+                    <br><span>You can unsubscribe at any time.</span>
+                </form>
+            </div>
+            <div>
+                <h3>Social</h3>
+                <i class="fab fa-youtube"> </i> Youtube <br>
+                <i class="fab fa-instagram"> </i> Instagram <br>
+                <i class="fab fa-facebook-square"> </i> Facebook<br>
+                 <i class="fab fa-telegram-square"> </i> Telegram
+            </div>
+            <div>
+                <h3> Get the App</h3>
+                <i class="fab fa-google-play"> </i> Google Play <br>
+                <i class="fab fa-apple"> </i> App Store
+            </div>
+        </div>
+    </footer>
+
+</head>
+<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Poppins:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #212121;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 4rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+em {
+  font-family: 'Cabin Sketch', cursive;
+  color: #fab700;
+}
+
+li {
+  font-size: 1.8rem;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+button {
+  padding: 16px;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-size: 28px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  border-radius: 16px;
+  font-variant-caps: all-petite-caps;
+}
+
+button:hover {
+  background: #212121;
+  color: #fff;
+}
+
+/* Nav section with HERO */
+
+#header {
+  background: #000;
+  color: #fff;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+nav {
+  min-height: 10vh;
+  padding: 16px;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #212121;
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  font-variant-caps: all-small-caps;
+}
+
+nav a:hover {
+  color: #fab700;
+}
+
+nav img {
+  max-height: 8vh;
+}
+
+#logo {
+  flex: 2 1 40rem;
+  font-size: 2rem;
+  color: #fab700;
+}
+
+#trading {
+  min-height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.815), transparent),url("https://images.unsplash.com/photo-1612010167102-d1e8f83833e1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0vw 15vw;
+}
+
+#header h1 {
+  width: 15vw;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 2.2rem;
+}
+
+#trading h2 {
+  padding: 2.6rem;
+}
+
+#trading p {
+  text-align: justify;
+}
+
+#trading button {
+  width: 18vw;
+  font-weight: 500;
+  padding: 1.2rem 1.8rem;
+  background: #fff;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  border-radius: 0.2rem;
+  font-variant-caps: all-petite-caps;
+}
+
+#trading button:hover {
+  background: #212121;
+  color: #fff;
+}
+
+#trading .button-right {
+  background: #fab700;
+  color: #212121;
+  border: solid 0.17rem;
+}
+
+#trading .button-right:hover {
+  background: #212121;
+  color: #fff;
+}
+
+/* App section */
+
+#download {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.815), transparent),
+    url(https://images.pexels.com/photos/241544/pexels-photo-241544.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0vw 15vw;
+}
+
+#download h3 {
+  padding: 3rem 3rem 3rem 0rem;
+}
+
+#download p {
+  text-align: left;
+}
+
+#download button {
+  width: 15vw;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+#download .fab {
+  font-size: 3rem;
+  padding-right: 1rem;
+}
+
+/* Membership section */
+
+#buy {
+  background: linear-gradient(rgb(0, 0, 0), transparent), url(./);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: left;
+}
+
+#buy h3 {
+  padding: 6rem 0rem 1rem 0rem;
+}
+
+#cards {
+  width: 90vw;
+  font-weight: 500;
+  background: none;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#card-left,
+#card-right {
+  width: 35vw;
+  background: #fff;
+  color: #212121;
+  border: solid 0.4rem;
+  border-radius: 0.4rem;
+  border-color: #212121;
+  margin: 5vw;
+  padding: 5vw 2vw;
+  opacity: 0.8;
+  text-align: center;
+  align-items: center;
+}
+
+#card-right {
+  border-color: #fab700;
+}
+
+#card-left:hover,
+#card-right:hover {
+  opacity: 1;
+}
+
+#cards h3 {
+  padding: 0rem;
+}
+
+.bla-bla-bla {
+  text-align: left;
+  align-items: center;
+  line-height: 3.5rem;
+  padding: 4rem;
+  width: auto;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.image {
+  width: 70vw;
+  size : 20vw;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0.3;
+}
+
+.image:hover {
+  opacity: 1;
+}
+
+#cards button {
+  width: 20vw;
+  border: solid 0.17rem;
+  border-radius: 0.2rem;
+  margin: 2rem 0rem 3rem 0rem;
+}
+
+#cards button:hover {
+  background-color: #fab700;
+  color: #212121;
+  border: solid 0.17rem;
+  border-color: #212121;
+}
+
+#card-right button {
+  background: #fab700;
+  color: #212121;
+  border: solid 0.17rem;
+}
+
+#card-right button:hover {
+  background: #212121;
+  color: #fff;
+}
+
+#card-left button:hover {
+  background: #212121;
+  color: #fff;
+}
+
+#money-back {
+  color: #212121;
+  font-size: 2.2rem;
+  text-align: center;
+  padding: 5rem 0rem 7rem 0rem;
+}
+
+/* Footer section */
+
+#rss {
+  min-height: 30vh;
+  color: #fff;
+  padding: 2vw 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 1.6rem;
+}
+
+#rss h3 {
+  font-size: 2rem;
+  padding: 1rem 0rem;
+}
+
+#rss label {
+  font-size: 1.6rem;
+}
+
+.social-media {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  min-height: 20vh;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.social-media div {
+  margin: 0vw 4vw;
+}
+
+.social-media input,
+.social-media .fab {
+  cursor: pointer;
+}
+
+#social-media-subscribe {
+  max-width: 35vw;
+}
+
+/* Media query */
+
+@media screen and (max-width: 780px) {
+  body {
+    width: 100%;
+    padding: 2vw 0vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    font-size: 45%;
+  }
+
+  header,
+  section,
+  footer,
+  #cards {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap;
+  }
+
+  #trading button,
+  #download button {
+    width: 40vw;
+    align-items: center;
+  }
+
+  #card-left,
+  #card-right {
+    width: 90vw;
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  margin: 70px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 5px;
+  width: 60%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup h2 {
+  margin-top: 0;
+  color: #212121;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.content p{
+color: #212121;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+</style>
+</body>
+</html>

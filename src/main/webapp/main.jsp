@@ -1,0 +1,258 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main page</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Poppins:wght@400;500&display=swap');
+
+#header {
+  background: #000;
+  color: #000;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  opacity : 0.93;
+  border: 0.5px solid #e6ecf0;
+}
+#logo{
+color :#fab700;
+font-family: 'Cabin Sketch', cursive;
+}
+nav {
+  min-height: 10vh;
+  padding: 12px;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  }
+nav ul{
+
+display : flex;
+flex: 1 1 40rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  font-variant-caps: all-small-caps;
+}
+li{
+font-size: 1.2rem;
+ font-family: 'Poppins', sans-serif;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+nav a:hover{
+color:#fab700;
+}
+
+img{
+width : 26.25px;
+height : 26.25px;
+}
+
+p{
+margin-top:4px;
+
+}
+
+.grid-sidebar:hover {
+  color: #fab700 ;
+  cursor: pointer;
+}
+
+.wrapper-left {
+  display: flex;
+  position: relative;
+}
+.wrapper-left .sidebar-left {
+  position: fixed;
+  width: 276px;
+  height: 100%;
+  background-color: #ffffff;
+  font-size: 19px;
+  border-right: 0.5px solid #e6ecf0;
+  margin-left: 40px;
+}
+
+.grid-sidebar {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-bottom: 20px;
+}
+
+nav input{
+width : 400px;
+height :26.25px;
+border : 0.5px solid #e6ecf0;
+ margin-left: 80%;
+background-color: rgb(255, 255, 255);
+  
+}
+.center{
+
+margin-right:30px;
+height :100%;
+align-items :center;
+border-right : 0.5px solid #e6ecf0;
+border-right:100%;
+}
+
+.search-box{
+margin-left: 560px;
+padding : 15px;
+}
+
+.search-box input{
+width:400px;
+height:80px;
+border : 0.5px solid #e6ecf0;
+}
+
+.post{
+margin-left: 750px;
+}
+
+.post button {
+background-color:#fab700;
+width: 60px;
+font-family: 'Poppins', sans-serif;
+color: #fff;
+}
+
+.post button:hover{
+background-color : #000;
+cursor : pointer;
+}
+
+.maindata{
+margin-left: 600px;
+padding : 20px;
+}
+
+
+
+
+</style>
+</head>
+
+
+<body>
+<header id = "header">
+<nav id = "nav-bar">
+<h1 id = "logo">Stockmarket Solutions</h1>
+<div class = "search">
+<input type = "text" placeholder= "Search">
+</div>
+</nav>
+</header>
+<div class="wrapper-left">
+<div class="sidebar-left">
+<div class = "grid-sidebar" >
+<div class = "icon-sidebar">
+ <img src="https://i.ibb.co/6tKFLWG/home.png">
+ </div>
+ <div>
+ <p>Home</p>
+ </div>
+</div>
+
+<div class = "grid-sidebar" >
+<div class = "icon-sidebar">
+<img src = "https://i.ibb.co/G7jRx4j/hash.png">
+</div>
+<div>
+<p>Explore</p>
+</div>
+</div>
+
+<div class = "grid-sidebar" >
+<div class = "icon-sidebar">
+<img src = "https://i.ibb.co/Gsr7qyX/notification.png">
+</div>
+<div>
+<p>Notifications</p>
+</div>
+</div>
+
+<div class = "grid-sidebar" >
+<div class = "icon-sidebar">
+<img src = "https://i.ibb.co/b2zRPbZ/email.png">
+</div>
+<div>
+<p>Messages</p>
+</div>
+</div>
+
+<div class = "grid-sidebar" >
+<div class = "icon-sidebar">
+<img src = "https://i.ibb.co/znTXjv6/perfil.png">
+</div>
+<div>
+<p>Profile</p>
+</div>
+</div>
+
+<div class = "grid-sidebar" >
+<div class = "icon-sidebar">
+<img src = "https://i.ibb.co/gS5z544/opciones.png">
+</div>
+<div>
+<p>More Options</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class = "center">
+<div class = "right-bar">
+<form action = "DataServlet" method = "post">
+<div class = "search-box">
+<input type = "text" placeholder ="what's on your mind" name= "data">
+</div>
+<div class = "post">
+<button type = "submit">Post</button>
+</div>
+</form>
+</div>
+</div>
+
+<div class= "maindata">
+<div class = "postdata">
+<%@page import = "java.sql.*"%>
+<%@page import = "com.java.dbutils.*" %>
+
+<%
+try{
+	
+
+Connection con = null;
+PreparedStatement st = null;
+
+con = DBConnection.getConnection();
+st = con.prepareStatement(DBConstants.retrieve);
+ResultSet rs = st.executeQuery();
+while(rs.next()){
+	String data = rs.getString(1);
+	out.println("\n");
+	out.println(data);
+}
+
+}
+
+catch(Exception e){
+	System.out.println("error");
+}
+%>
+
+</div>
+</div>
+
+
+</body>
+</html>
